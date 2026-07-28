@@ -82,6 +82,7 @@ a {
     border: 1px solid var(--line);
     border-radius: 32px;
     background: rgba(255, 255, 255, 0.48);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     box-shadow: var(--shadow);
 }
@@ -292,6 +293,99 @@ a {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.doc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.doc-content-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.doc-intro p {
+    margin-top: 0;
+}
+
+.doc-intro p+p {
+    margin-top: 12px;
+}
+
+.doc-card {
+    display: grid;
+    gap: 12px;
+}
+
+.doc-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.doc-card-header h3 {
+    margin-bottom: 0;
+}
+
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(47, 93, 80, 0.26);
+    background: rgba(47, 93, 80, 0.1);
+    color: #1f4b40;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-chip.caution {
+    border-color: rgba(138, 79, 45, 0.3);
+    background: rgba(138, 79, 45, 0.12);
+    color: #6e3d23;
+}
+
+.doc-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--muted);
+    line-height: 1.55;
+    display: grid;
+    gap: 8px;
+}
+
+.metric-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 0.96rem;
+}
+
+.metric-table th,
+.metric-table td {
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 8px;
+    color: var(--muted);
+}
+
+.metric-table th {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.metric-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.glossary-list strong {
+    color: var(--text);
+}
+
 .card,
 .person-card,
 .paper-card,
@@ -423,12 +517,17 @@ a {
     .team-grid,
     .paper-list,
     .feature-grid,
+    .doc-grid,
     .callout {
         grid-template-columns: 1fr;
     }
 
     .callout {
         display: grid;
+    }
+
+    .doc-content-grid {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -107,6 +107,190 @@
                 </div>
             </section>
 
+            <section class="section reveal">
+                <div class="section-heading">
+                    <p class="eyebrow">Documentation hub</p>
+                    <h2>Research docs, translated for readers</h2>
+                </div>
+                <article class="card doc-intro">
+                    <p>
+                        This page includes a maintained summary of the core research documents so the Org Site remains
+                        readable even when the docs folder is not available in this repository.
+                    </p>
+                    <p>
+                        Each block below mirrors the current project documentation and is updated to reflect what is
+                        valid, what is exploratory, and what still requires a larger longitudinal dataset.
+                    </p>
+                </article>
+                <div class="doc-grid">
+                    <article class="card doc-card">
+                        <div class="doc-card-header">
+                            <h3>Methodology log</h3>
+                            <span class="status-chip">Active</span>
+                        </div>
+                        <p>
+                            MetaboGuard uses a hybrid self-supervised workflow: a denoising autoencoder learns latent
+                            patient representations, then post-hoc association heads test whether those representations
+                            carry useful signal.
+                        </p>
+                        <ul class="doc-list">
+                            <li>Encoder shape: 25 raw features, 55 transformed dimensions, 16 latent dimensions.</li>
+                            <li>Training data: 50,000 unlabeled adult NHANES rows.</li>
+                            <li>Current approved capability: cross-sectional representation and deviation scoring only.
+                            </li>
+                        </ul>
+                        <a class="paper-link"
+                            href="https://github.com/KERI-Research/Algo-Model/blob/main/docs/METHODOLOGY.md"
+                            target="_blank noopener">Open methodology source</a>
+                    </article>
+
+                    <article class="card doc-card">
+                        <div class="doc-card-header">
+                            <h3>Results and status guide</h3>
+                            <span class="status-chip caution">Guarded</span>
+                        </div>
+                        <p>
+                            The self-supervised artifact is valid for deviation and representation benchmarking, but the
+                            corrected pancreatic endpoint remains underpowered for a deployable risk model.
+                        </p>
+                        <ul class="doc-list">
+                            <li>Any-cancer cross-sectional check: AUROC 0.699, AUPRC 0.169.</li>
+                            <li>Type 2 proxy check: AUROC 0.923, AUPRC 0.675.</li>
+                            <li>Corrected diabetic pancreatic positives after required-field cleaning: 6 cases.</li>
+                        </ul>
+                        <a class="paper-link"
+                            href="https://github.com/KERI-Research/Algo-Model/blob/main/docs/RESULTS_GUIDE.md"
+                            target="_blank noopener">Open results guide source</a>
+                    </article>
+
+                    <article class="card doc-card">
+                        <div class="doc-card-header">
+                            <h3>Prevention model specification</h3>
+                            <span class="status-chip">Specification</span>
+                        </div>
+                        <p>
+                            The prevention specification defines what the system can and cannot claim, with strict
+                            dataset-governance gates before any disease-risk release is allowed.
+                        </p>
+                        <ul class="doc-list">
+                            <li>Warning output is non-diagnostic and clinician-reviewed.</li>
+                            <li>Leakage-sensitive variables are explicitly deny-listed.</li>
+                            <li>Future risk heads require longitudinal outcomes and event-count thresholds.</li>
+                        </ul>
+                        <a class="paper-link"
+                            href="https://github.com/KERI-Research/Algo-Model/blob/main/docs/PREVENTION_MODEL_SPEC.md"
+                            target="_blank noopener">Open model spec source</a>
+                    </article>
+
+                    <article class="card doc-card">
+                        <div class="doc-card-header">
+                            <h3>Evidence brief</h3>
+                            <span class="status-chip">Literature-backed</span>
+                        </div>
+                        <p>
+                            The project evidence brief maps key design choices to published epidemiology and biomarker
+                            literature, and flags where evidence is still incomplete.
+                        </p>
+                        <ul class="doc-list">
+                            <li>New-onset diabetes has materially higher pancreatic risk than long-standing diabetes.
+                            </li>
+                            <li>Weight-loss and glycemic dynamics are high-value candidate signals.</li>
+                            <li>NHANES and TCGA-CDR are complementary, but do not create patient-level trajectories.
+                            </li>
+                        </ul>
+                        <a class="paper-link"
+                            href="https://github.com/KERI-Research/Algo-Model/blob/main/docs/RESEARCH_EVIDENCE.md"
+                            target="_blank noopener">Open evidence brief source</a>
+                    </article>
+
+                    <article class="card doc-card">
+                        <div class="doc-card-header">
+                            <h3>Variable catalogue</h3>
+                            <span class="status-chip">Roadmap</span>
+                        </div>
+                        <p>
+                            The variable catalogue translates recent papers into implementation priorities so readers
+                            can
+                            track exactly which predictors are available now versus what needs richer cohorts.
+                        </p>
+                        <ul class="doc-list">
+                            <li>Priority A variables now integrated include smoking, alcohol, CBC, ALT and creatinine.
+                            </li>
+                            <li>Nonlinear HbA1c behavior is explicitly modeled as a top research focus.</li>
+                            <li>Genetic and omics candidates are separated into higher-complexity future tiers.</li>
+                        </ul>
+                        <a class="paper-link"
+                            href="https://github.com/KERI-Research/Algo-Model/blob/main/docs/PAPER_VARIABLE_CATALOGUE.md"
+                            target="_blank noopener">Open variable catalogue source</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section reveal">
+                <div class="section-heading">
+                    <p class="eyebrow">Reader guide</p>
+                    <h2>What the outputs mean today</h2>
+                </div>
+                <div class="content-grid doc-content-grid">
+                    <article class="card">
+                        <h3>Metric meanings</h3>
+                        <table class="metric-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Meaning</th>
+                                    <th>Direction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AUROC</td>
+                                    <td>Ranking discrimination across thresholds.</td>
+                                    <td>Higher is better.</td>
+                                </tr>
+                                <tr>
+                                    <td>AUPRC</td>
+                                    <td>Precision-recall performance under class imbalance.</td>
+                                    <td>Higher is better; compare with prevalence.</td>
+                                </tr>
+                                <tr>
+                                    <td>Brier score</td>
+                                    <td>Squared probability error.</td>
+                                    <td>Lower is better.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+
+                    <article class="card">
+                        <h3>Terminology in plain language</h3>
+                        <ul class="doc-list glossary-list">
+                            <li><strong>Cross-sectional:</strong> one-time measurements, useful for associations.</li>
+                            <li><strong>Longitudinal:</strong> repeated follow-up over time, required for future-risk
+                                claims.</li>
+                            <li><strong>Deviation score:</strong> how unusual a profile is versus the training reference
+                                population.</li>
+                            <li><strong>Leakage:</strong> giving a model information that directly encodes the outcome.
+                            </li>
+                            <li><strong>Underpowered cohort:</strong> too few positive cases to support stable
+                                validation.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Evidence of progress</h3>
+                        <ul class="doc-list progress-list">
+                            <li>Invalidated old endpoint mapping and corrected pancreatic code construction.</li>
+                            <li>Moved pipeline to corrected versioned datasets ending in _v2.csv.</li>
+                            <li>Added dataset signatures and artifact safety gates to block stale model reuse.</li>
+                            <li>Expanded predictor coverage with Priority A clinical variables from literature review.
+                            </li>
+                            <li>Documented explicit release policy for non-diagnostic versus future-risk artifacts.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
             <!-- GitHub Repo -> https://github.com/KERI-Research/Algo-Model -->
             <section class="section reveal">
                 <div class="section-heading">
