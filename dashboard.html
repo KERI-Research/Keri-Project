@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Embedded KERI dashboard for interactive causal and biomarker analysis, managed independently from the org site." />
+    <title>KERI Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="page-hero hero reveal">
+            <nav class="site-nav" aria-label="Primary">
+                <div class="brand">
+                    <span class="brand-mark">K</span>
+                    <div>
+                        <p class="brand-kicker">Research project</p>
+                        <p class="brand-name">KERI</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a class="nav-pill" href="index.html">Home</a>
+                    <a class="nav-pill" href="research.html">Research</a>
+                    <a class="nav-pill" href="team.html">Team</a>
+                    <a class="nav-pill" href="papers.html">Papers</a>
+                    <a class="nav-pill current" href="dashboard.html">Dashboard</a>
+                </div>
+            </nav>
+
+            <section class="hero-grid hero-grid-slim">
+                <div class="hero-copy">
+                    <p class="eyebrow">Live interface</p>
+                    <h1>Interactive model dashboard.</h1>
+                    <p class="lede">
+                        This page embeds the React dashboard so interface updates can be shipped independently
+                        from the org site content pages.
+                    </p>
+                </div>
+
+                <aside class="hero-panel">
+                    <div class="stat-card">
+                        <span class="stat-label">Embed source</span>
+                        <strong>keri.cerebrallab.org/dashboard/</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Purpose</span>
+                        <strong>Externally managed model interface</strong>
+                    </div>
+                </aside>
+            </section>
+        </header>
+
+        <main>
+            <section class="section reveal">
+                <div class="keri-dashboard-block">
+                    <iframe class="keri-dashboard-frame" src="https://keri.cerebrallab.org/dashboard/"
+                        title="KERI Dashboard" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
